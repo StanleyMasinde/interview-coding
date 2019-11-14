@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class LinkController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -91,5 +95,13 @@ class LinkController extends Controller
     public function destroy(Link $link)
     {
         //
+    }
+
+    /**
+     * Manage link
+     */
+    public function manage(Link $link)
+    {
+        return view('manage', ['link' => $link]);
     }
 }

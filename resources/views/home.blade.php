@@ -18,6 +18,7 @@
                     @foreach ($links as $link)
                         <p>{{ $link->link }}</p>
                     <p>Owned by: {{ count($link->users) }}</p>
+                    <a class="btn btn-primary" href="/manage-owners/{{ $link->id }}">Manage Owners</a>
                     @endforeach
                    @endif
                 </div>
