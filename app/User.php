@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * A user can have many links
+     * A link can beong to many users
+     */
+    public function links()
+    {
+        return $this->belongsToMany('App\Link');
+    }
 }
