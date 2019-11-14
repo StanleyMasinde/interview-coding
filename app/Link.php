@@ -11,4 +11,6 @@ class Link extends Model
     {
         return $this->belongsToMany('App\User');
     }
+
+    protected $with = 'users';
 }

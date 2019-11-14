@@ -17,6 +17,7 @@
                     @else
                     @foreach ($links as $link)
                         <p>{{ $link->link }}</p>
+                    <p>Owned by: {{ count($link->users) }}</p>
                     @endforeach
                    @endif
                 </div>
