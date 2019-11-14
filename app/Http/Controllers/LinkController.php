@@ -104,4 +104,16 @@ class LinkController extends Controller
     {
         return view('manage', ['link' => $link]);
     }
+
+    /**
+     * Own link
+     */
+    public function ownLink(Link $link,Request $request)
+    {
+        $user= $request->user();
+
+        $link->users()->save($user);
+
+        return back()->with('mesage', 'You own this link');
+    }
 }

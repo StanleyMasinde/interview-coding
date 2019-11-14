@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ $link->link }}</div>
-                    <a class="btn btn-primary" href="/own-link/{{ $link->id }}"></a>
+                    <a class="btn btn-primary" href="/own-link/{{ $link->id }}">Own Link</a>
                     <h1>Owners</h1>
                     @foreach ($link->users as $user)
                         <p>{{ $user->name }}</p>
