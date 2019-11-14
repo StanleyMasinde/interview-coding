@@ -5,16 +5,20 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">
+                    <a class="btn btn-primary" href="/link/create">Create Link</a>
+                </div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                   @if (count($links) == 0)
+                       <div class="alert alert-primary" role="alert">
+                           <strong>No links found</strong>
+                       </div>
+                    @else
+                    @foreach ($links as $link)
+                        <p>{{ $link->link }}</p>
+                    @endforeach
+                   @endif
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@ class LinkController extends Controller
      */
     public function create()
     {
-        //
+        return view('link.create');
     }
 
     /**
@@ -35,7 +35,17 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'link' => 'required'
+        ]);
+
+        $link = new Link();
+        $link->link = $request->link;
+        $link->save();
+
+        $link->users()->save($request->user());
+
+        return back()->with('success', 'Link created');
     }
 
     /**
